@@ -1,5 +1,5 @@
 import jwt              from 'jsonwebtoken'
-import bcrypt            from 'bcrypt'
+import bcrypt            from 'bcryptjs'
 import doctorModel       from '../models/doctorModel.js'
 import appointmentModel  from '../models/appointmentModel.js'
 import { v2 as cloudinary } from 'cloudinary'
