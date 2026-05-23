@@ -5,8 +5,8 @@ import { toast } from 'react-toastify'
 export const AppContext = createContext()
 
 const AppContextProvider = ({ children }) => {
-  const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:4000'
-  const adminUrl   = import.meta.env.VITE_ADMIN_URL   || 'http://localhost:5174'
+  const backendUrl = import.meta.env.VITE_BACKEND_URL || 'https://final-year-project-kgzz.vercel.app'
+  const adminUrl   = import.meta.env.VITE_ADMIN_URL   || 'https://final-year-project-dts8.vercel.app'
 
   const [doctors, setDoctors]   = useState([])
   const [token,   setToken]     = useState(localStorage.getItem('token') || '')
