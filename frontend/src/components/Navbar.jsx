@@ -11,7 +11,10 @@ const Navbar = () => {
 
   const isHome = location.pathname === '/'
   const logout = () => { localStorage.removeItem('token'); setToken(''); navigate('/login') }
-  const openAdmin = () => window.open(adminUrl || 'http://localhost:5174', '_blank')
+  // const openAdmin = () => window.open(adminUrl || 'https://final-year-project-dts8.vercel.app', '_blank')
+  const openAdmin = () => {
+  window.open(import.meta.env.VITE_ADMIN_URL, '_blank');
+};
 
   return (
     <nav className='sticky top-0 z-50 bg-white border-b border-slate-200'>
