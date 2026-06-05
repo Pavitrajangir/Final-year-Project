@@ -39,7 +39,7 @@ const Footer = () => {
             <ul className='flex flex-col gap-2 text-sm'>
               <li>+91 98765 43210</li>
               <li>care@medimate.in</li>
-              <li className='leading-relaxed'>Connaught Place,<br/>New Delhi 110001</li>
+              <li className='leading-relaxed'>Connaught Place,<br/>New Delhi</li>
             </ul>
           </div>
         </div>
