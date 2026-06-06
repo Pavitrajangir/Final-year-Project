@@ -40,7 +40,6 @@ const FloatingActions = () => {
   )
 }
 
-// Small tooltip wrapper
 const Tooltip = ({ label, children }) => (
   <div className='relative group'>
     {children}
@@ -51,16 +50,12 @@ const Tooltip = ({ label, children }) => (
   </div>
 )
 
-// Spinner icon shared across panels
 const Spinner = ({ size = 14 }) => (
   <svg className='animate-spin' width={size} height={size} fill='none' viewBox='0 0 24 24' stroke='currentColor' strokeWidth='2'>
     <path d='M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4' strokeLinecap='round'/>
   </svg>
 )
 
-// ─────────────────────────────────────────────────────────────────────────────
-// AI CHAT PANEL
-// ─────────────────────────────────────────────────────────────────────────────
 const AIChatPanel = ({ onClose, userData }) => {
   const { backendUrl, token } = useContext(AppContext)
 
