@@ -1,17 +1,3 @@
-/**
- * POST /api/ai/chat
- * Body: { messages: [{role, content}], systemPrompt: string }
- *
- * Uses Groq API — 100% FREE, no credit card needed.
- * Sign up at: https://console.groq.com  → API Keys → Create key
- *
- * Free limits (very generous):
- *   - 14,400 requests/day
- *   - 500,000 tokens/day
- *   - No credit card required
- *
- * Model: llama-3.3-70b-versatile (powerful, fast, free)
- */
 export const aiChat = async (req, res) => {
   try {
     const { messages, systemPrompt } = req.body

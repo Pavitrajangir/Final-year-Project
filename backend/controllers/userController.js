@@ -6,7 +6,7 @@ import doctorModel      from '../models/doctorModel.js'
 import appointmentModel from '../models/appointmentModel.js'
 import { v2 as cloudinary } from 'cloudinary'
 
-// ── Register ──────────────────────────────────────────────────────────────────
+// ── Register 
 export const registerUser = async (req, res) => {
   try {
     const { name, email, password } = req.body
@@ -26,7 +26,7 @@ export const registerUser = async (req, res) => {
   }
 }
 
-// ── Login ─────────────────────────────────────────────────────────────────────
+// ── Login 
 export const loginUser = async (req, res) => {
   try {
     const { email, password } = req.body
@@ -41,7 +41,7 @@ export const loginUser = async (req, res) => {
   }
 }
 
-// ── Get profile ───────────────────────────────────────────────────────────────
+// ── Get profile 
 export const getProfile = async (req, res) => {
   try {
     const userId   = req.userId   // set by authUser middleware on req directly
@@ -53,7 +53,7 @@ export const getProfile = async (req, res) => {
   }
 }
 
-// ── Update profile (plain JSON body) ─────────────────────────────────────────
+// ── Update profile (plain JSON body) 
 export const updateProfile = async (req, res) => {
   try {
     const userId = req.userId   // from authUser middleware
@@ -94,7 +94,7 @@ export const updateProfile = async (req, res) => {
   }
 }
 
-// ── Update profile image ──────────────────────────────────────────────────────
+// ── Update profile image 
 export const updateProfileImage = async (req, res) => {
   try {
     const userId    = req.userId
@@ -108,7 +108,7 @@ export const updateProfileImage = async (req, res) => {
   }
 }
 
-// ── Book appointment ──────────────────────────────────────────────────────────
+// ── Book appointment
 export const bookAppointment = async (req, res) => {
   try {
     const userId = req.userId
@@ -134,7 +134,7 @@ export const bookAppointment = async (req, res) => {
   }
 }
 
-// ── List appointments ─────────────────────────────────────────────────────────
+// ── List appointments 
 export const listAppointments = async (req, res) => {
   try {
     const userId       = req.userId
@@ -145,7 +145,7 @@ export const listAppointments = async (req, res) => {
   }
 }
 
-// ── Cancel appointment ────────────────────────────────────────────────────────
+// ── Cancel appointment 
 export const cancelAppointment = async (req, res) => {
   try {
     const userId = req.userId
@@ -165,7 +165,7 @@ export const cancelAppointment = async (req, res) => {
   }
 }
 
-// ── Get appointments with doctor notes (for AI context) ──────────────────────
+// ── Get appointments with doctor notes (for AI context) 
 export const getAppointmentsWithNotes = async (req, res) => {
   try {
     const userId = req.userId

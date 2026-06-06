@@ -98,7 +98,6 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile drawer */}
       {menuOpen && (
         <div className='fixed inset-0 bg-white z-50 flex flex-col'>
           <div className='flex justify-between items-center px-6 py-4 border-b border-slate-100'>

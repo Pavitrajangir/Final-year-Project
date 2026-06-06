@@ -1,24 +1,12 @@
 import userModel from '../models/userModel.js'
 
-/**
- * POST /api/sos/send
- * Body: { latitude, longitude, address }  (from browser GPS)
- * Auth: requires token header (authUser middleware)
- *
- * Sends a WhatsApp message to the patient's emergencyContact number
- * using Twilio's WhatsApp sandbox/API.
- *
- * Required .env vars:
- *   TWILIO_ACCOUNT_SID
- *   TWILIO_AUTH_TOKEN
- *   TWILIO_WHATSAPP_FROM   (e.g. whatsapp:+14155238886  ← Twilio sandbox number)
- */
+
 export const sendSOS = async (req, res) => {
   try {
     const userId = req.userId
     const { latitude, longitude, address } = req.body
 
-    // ── 1. Load patient data ──────────────────────────────────────────────────
+    // ── 1. Load patient data 
     const user = await userModel.findById(userId).select('-password')
     if (!user) return res.json({ success: false, message: 'User not found' })
 
@@ -30,7 +18,7 @@ export const sendSOS = async (req, res) => {
       })
     }
 
-    // ── 2. Build the alert message ────────────────────────────────────────────
+    // ── 2. Build the alert message 
     const mapsLink = latitude && longitude
       ? `https://maps.google.com/?q=${latitude},${longitude}`
       : null
@@ -57,7 +45,7 @@ export const sendSOS = async (req, res) => {
       `_Sent via MediMate Emergency SOS_`,
     ].join('\n')
 
-    // ── 3. Check Twilio credentials ───────────────────────────────────────────
+    // ── 3. Check Twilio credentials 
     const accountSid = process.env.TWILIO_ACCOUNT_SID
     const authToken  = process.env.TWILIO_AUTH_TOKEN
     const fromNumber = process.env.TWILIO_WHATSAPP_FROM
@@ -77,7 +65,7 @@ export const sendSOS = async (req, res) => {
       })
     }
 
-    // ── 4. Send via Twilio WhatsApp API ───────────────────────────────────────
+    // ── 4. Send via Twilio WhatsApp API 
     // Normalize the to-number: ensure it starts with whatsapp:+
     let toNumber = emergencyContact
     if (!toNumber.startsWith('whatsapp:')) {

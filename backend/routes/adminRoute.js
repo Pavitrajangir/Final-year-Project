@@ -13,10 +13,10 @@ import upload         from '../middleware/multer.js'
 
 const adminRouter = express.Router()
 
-// ── Public ────────────────────────────────────────────────────────────────────
+// ── Public 
 adminRouter.post('/login', loginAdmin)
 
-// ── Protected (admin only) ────────────────────────────────────────────────────
+// ── Protected (admin only)
 adminRouter.post('/add-doctor',           authAdmin, upload.single('image'), addDoctor)
 adminRouter.get('/all-doctors',           authAdmin, allDoctors)
 adminRouter.post('/change-availability',  authAdmin, changeAvailabilityAdmin)

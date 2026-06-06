@@ -15,11 +15,11 @@ import { authDoctor } from '../middleware/authMiddleware.js'
 
 const doctorRouter = express.Router()
 
-// ── Public ────────────────────────────────────────────────────────────────────
+// ── Public
 doctorRouter.get('/list',   doctorList)
 doctorRouter.post('/login', loginDoctor)
 
-// ── Protected (doctor only) ───────────────────────────────────────────────────
+// ── Protected (doctor only)
 doctorRouter.get('/appointments',          authDoctor, appointmentsDoctor)
 doctorRouter.post('/complete-appointment', authDoctor, appointmentComplete)
 doctorRouter.post('/cancel-appointment',   authDoctor, appointmentCancelDoctor)

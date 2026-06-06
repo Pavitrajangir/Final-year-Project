@@ -4,7 +4,7 @@ import doctorModel       from '../models/doctorModel.js'
 import appointmentModel  from '../models/appointmentModel.js'
 import { v2 as cloudinary } from 'cloudinary'
 
-// ── Admin Login ───────────────────────────────────────────────────────────────
+// ── Admin Login 
 export const loginAdmin = async (req, res) => {
   try {
     const { email, password } = req.body
@@ -19,7 +19,7 @@ export const loginAdmin = async (req, res) => {
   }
 }
 
-// ── Add Doctor ────────────────────────────────────────────────────────────────
+// ── Add Doctor
 export const addDoctor = async (req, res) => {
   try {
     const {
@@ -71,7 +71,7 @@ export const addDoctor = async (req, res) => {
   }
 }
 
-// ── Get all doctors (admin view — includes availability toggle) ────────────────
+// ── Get all doctors (admin view — includes availability toggle) 
 export const allDoctors = async (req, res) => {
   try {
     const doctors = await doctorModel.find({}).select('-password')
@@ -81,7 +81,7 @@ export const allDoctors = async (req, res) => {
   }
 }
 
-// ── Toggle doctor availability ────────────────────────────────────────────────
+// ── Toggle doctor availability 
 export const changeAvailabilityAdmin = async (req, res) => {
   try {
     const { docId } = req.body
@@ -94,7 +94,7 @@ export const changeAvailabilityAdmin = async (req, res) => {
   }
 }
 
-// ── Get all appointments (latest first) ───────────────────────────────────────
+// ── Get all appointments (latest first) 
 export const appointmentsAdmin = async (req, res) => {
   try {
     const appointments = await appointmentModel.find({}).sort({ date: -1 })
@@ -104,7 +104,7 @@ export const appointmentsAdmin = async (req, res) => {
   }
 }
 
-// ── Cancel appointment (admin) ────────────────────────────────────────────────
+// ── Cancel appointment (admin)
 export const cancelAppointmentAdmin = async (req, res) => {
   try {
     const { appointmentId } = req.body
@@ -130,7 +130,7 @@ export const cancelAppointmentAdmin = async (req, res) => {
   }
 }
 
-// ── Admin Dashboard — live stats + latest bookings ────────────────────────────
+// ── Admin Dashboard — live stats + latest bookings 
 export const adminDashboard = async (req, res) => {
   try {
     const doctors      = await doctorModel.find({})

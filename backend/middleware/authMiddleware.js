@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken'
 
-// ── User auth — stores userId on req directly, never touches req.body ─────────
+//User auth — stores userId on req directly, never touches req.body
 export const authUser = async (req, res, next) => {
   try {
     const token = req.headers.token
@@ -13,7 +13,7 @@ export const authUser = async (req, res, next) => {
   }
 }
 
-// ── Admin auth ────────────────────────────────────────────────────────────────
+// ── Admin auth 
 export const authAdmin = async (req, res, next) => {
   try {
     const atoken = req.headers.atoken
@@ -27,7 +27,7 @@ export const authAdmin = async (req, res, next) => {
   }
 }
 
-// ── Doctor auth ───────────────────────────────────────────────────────────────
+// ── Doctor auth 
 export const authDoctor = async (req, res, next) => {
   try {
     const dtoken = req.headers.dtoken

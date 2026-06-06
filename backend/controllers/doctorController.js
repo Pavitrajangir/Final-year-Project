@@ -3,7 +3,7 @@ import bcrypt          from 'bcryptjs'
 import doctorModel     from '../models/doctorModel.js'
 import appointmentModel from '../models/appointmentModel.js'
 
-// ── Doctor Login ──────────────────────────────────────────────────────────────
+// ── Doctor Login 
 export const loginDoctor = async (req, res) => {
   try {
     const { email, password } = req.body
@@ -20,7 +20,7 @@ export const loginDoctor = async (req, res) => {
   }
 }
 
-// ── Get all doctors list (public — for frontend) ───────────────────────────────
+// ── Get all doctors list (public — for frontend)
 export const doctorList = async (req, res) => {
   try {
     const doctors = await doctorModel.find({}).select('-password -email')
@@ -30,7 +30,7 @@ export const doctorList = async (req, res) => {
   }
 }
 
-// ── Get doctor profile ────────────────────────────────────────────────────────
+// ── Get doctor profile
 export const getDoctorProfile = async (req, res) => {
   try {
     const docId = req.docId
@@ -41,7 +41,7 @@ export const getDoctorProfile = async (req, res) => {
   }
 }
 
-// ── Update doctor profile ─────────────────────────────────────────────────────
+// ── Update doctor profile
 export const updateDoctorProfile = async (req, res) => {
   try {
     const docId = req.docId
@@ -53,7 +53,7 @@ export const updateDoctorProfile = async (req, res) => {
   }
 }
 
-// ── Toggle availability (doctor self) ─────────────────────────────────────────
+// ── Toggle availability (doctor self)
 export const changeAvailability = async (req, res) => {
   try {
     const docId = req.docId
@@ -66,7 +66,7 @@ export const changeAvailability = async (req, res) => {
   }
 }
 
-// ── Get doctor's appointments (latest first) ──────────────────────────────────
+// ── Get doctor's appointments (latest first)
 export const appointmentsDoctor = async (req, res) => {
   try {
     const docId = req.docId
@@ -77,7 +77,7 @@ export const appointmentsDoctor = async (req, res) => {
   }
 }
 
-// ── Doctor completes an appointment ──────────────────────────────────────────
+// ── Doctor completes an appointment 
 export const appointmentComplete = async (req, res) => {
   try {
     const docId = req.docId
@@ -94,7 +94,7 @@ export const appointmentComplete = async (req, res) => {
   }
 }
 
-// ── Doctor cancels an appointment ─────────────────────────────────────────────
+// ── Doctor cancels an appointment
 export const appointmentCancelDoctor = async (req, res) => {
   try {
     const docId = req.docId
@@ -121,7 +121,7 @@ export const appointmentCancelDoctor = async (req, res) => {
   }
 }
 
-// ── Doctor Dashboard stats ────────────────────────────────────────────────────
+// ── Doctor Dashboard stats
 export const doctorDashboard = async (req, res) => {
   try {
     const docId = req.docId
@@ -149,7 +149,7 @@ export const doctorDashboard = async (req, res) => {
   }
 }
 
-// ── Doctor saves consultation notes (prescription, advice, diagnosis) ─────────
+// ── Doctor saves consultation notes (prescription, advice, diagnosis)
 export const saveConsultationNotes = async (req, res) => {
   try {
     const docId = req.docId
